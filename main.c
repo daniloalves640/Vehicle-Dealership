@@ -11,6 +11,8 @@ char placa [10];
 
 veiculos vei [10];
 
+int lista = 0;
+
 void cadastroDeVeiculos(){
   int i = 0;
   for (i = 0; i < 3; i++){
@@ -22,6 +24,7 @@ void cadastroDeVeiculos(){
   scanf("%s", vei[i].ano);
   printf("Insira a placa:");
   scanf("%s", vei[i].placa);
+  lista += lista;
   }
 }
 
@@ -33,9 +36,32 @@ void buscaAno(){
   scanf("%s", ano);
   for (i = 0; i < 3; i++){
   if (!strcmp(vei[i].ano, ano)){
-  printf("%s%s%s", vei[i].ano, vei[i].marca, vei[i]. modelo);
+    printf("Marca: %s Modelo: %s Ano: %s Placa: %s\n", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
+  }else
+  printf("Não há veículo para a busca.");
+  }
+}
+
+void buscaModelo(){
+
+  int i = 0;
+  int cont = 1;
+  char modelo[10];
+  printf("Insira o modelo para busca:");
+  scanf("%s", modelo);
+  for (i = 0; i < 3; i++){
+  if (!strcmp(vei[i].modelo, modelo)){
+    printf("%s\n%s\n%s\n%s", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }else
   printf("Não há veículo para a busca");
+  }
+}
+
+void listarVeiculos(){
+
+  int i = 0;
+  for (i = 0; i < 3; i++){
+        printf("%s\n%s\n%s\n%s", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }
 }
 
@@ -60,7 +86,7 @@ scanf("%d", &option);
 
     case 1 :
     
-    printf("%s\n%s\n%s\n%s", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
+    listarVeiculos();
     
     getchar();
 
@@ -69,13 +95,12 @@ scanf("%d", &option);
     case 2 :
 
     cadastroDeVeiculos();
-    for (i=0; i < 3; i++)
 
     break;
 
     case 3 :
 
-    //buscar por modelo
+    buscaModelo();
 
     break;
 
