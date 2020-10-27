@@ -19,7 +19,7 @@ void cadastroDeVeiculos(){
   fflush(stdin);
   printf("Quantos veículos serão cadastrados?");
   scanf("%d", &listaGeral);
-  listaInt = listaGeral + 1;
+  listaInt = listaGeral + 2;
   for (i = 0; i < listaInt && i <= 10; i++){
     printf("Insira a marca:");
     scanf("%s", vei[i].marca);
@@ -31,7 +31,7 @@ void cadastroDeVeiculos(){
     scanf("%s", vei[i].placa);
     listaInt--;
   }
-  printf("%d veículo\(s) cadastrados com sucesso.", listaGeral);
+  printf("%d veículo\(s) cadastrados com sucesso.\n", listaGeral);
 }
 
 void buscaAno(){
@@ -69,6 +69,24 @@ void listarVeiculos(){
   for (i = 0; i < listaGeral; i++){
     printf("Marca: %s Modelo: %s Ano: %s Placa: %s\n", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }
+}
+
+void ordernarPorAno(){
+
+  //Calculate length of array arr    
+  int length = sizeof(veiculos)/sizeof(veiculos[0]);    
+
+  //Sort the array in ascending order    
+  for (int i = 0; i < length; i++) {     
+    for (int j = i+1; j < length; j++) {     
+      if(arr[i] > arr[j]) {    
+        temp = arr[i];    
+        arr[i] = arr[j];    
+        arr[j] = temp;    
+      }     
+    }     
+  }    
+
 }
 
 int main(void) {
