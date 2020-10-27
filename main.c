@@ -11,21 +11,27 @@ char placa [10];
 
 veiculos vei [10];
 
-int lista = 0;
+int listaGeral = 0;
 
 void cadastroDeVeiculos(){
   int i = 0;
-  for (i = 0; i < 3; i++){
-  printf("Insira a marca:");
-  scanf("%s", vei[i].marca);
-  printf("Insira o modelo:");
-  scanf("%s", vei[i].modelo);
-  printf("Insira o ano:");
-  scanf("%s", vei[i].ano);
-  printf("Insira a placa:");
-  scanf("%s", vei[i].placa);
-  lista += lista;
+  int listaInt;
+  fflush(stdin);
+  printf("Quantos veículos serão cadastrados?");
+  scanf("%d", &listaGeral);
+  listaInt = listaGeral + 1;
+  for (i = 0; i < listaInt && i <= 10; i++){
+    printf("Insira a marca:");
+    scanf("%s", vei[i].marca);
+    printf("Insira o modelo:");
+    scanf("%s", vei[i].modelo);
+    printf("Insira o ano:");
+    scanf("%s", vei[i].ano);
+    printf("Insira a placa:");
+    scanf("%s", vei[i].placa);
+    listaInt--;
   }
+  printf("%d veículo\(s) cadastrados com sucesso.", listaGeral);
 }
 
 void buscaAno(){
@@ -34,11 +40,11 @@ void buscaAno(){
   char ano[4];
   printf("Insira o ano para busca:");
   scanf("%s", ano);
-  for (i = 0; i < 3; i++){
+  for (i = 0; i < listaGeral; i++){
   if (!strcmp(vei[i].ano, ano)){
     printf("Marca: %s Modelo: %s Ano: %s Placa: %s\n", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }else
-  printf("Não há veículo para a busca.");
+  printf("Não há veículo para a busca.\n");
   }
 }
 
@@ -49,19 +55,19 @@ void buscaModelo(){
   char modelo[10];
   printf("Insira o modelo para busca:");
   scanf("%s", modelo);
-  for (i = 0; i < 3; i++){
+  for (i = 0; i < listaGeral; i++){
   if (!strcmp(vei[i].modelo, modelo)){
-    printf("%s\n%s\n%s\n%s", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
+    printf("Marca: %s Modelo: %s Ano: %s Placa: %s\n", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }else
-  printf("Não há veículo para a busca");
+  printf("Não há veículo para a busca.\n");
   }
 }
 
 void listarVeiculos(){
 
   int i = 0;
-  for (i = 0; i < 3; i++){
-        printf("%s\n%s\n%s\n%s", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
+  for (i = 0; i < listaGeral; i++){
+    printf("Marca: %s Modelo: %s Ano: %s Placa: %s\n", vei[i].marca, vei[i].modelo, vei[i].ano, vei[i].placa);
   }
 }
 
@@ -118,7 +124,7 @@ scanf("%d", &option);
 
     default:
 
-    printf("Opção inválida.");
+    printf("Opção inválida.\n");
 
     break;
 
