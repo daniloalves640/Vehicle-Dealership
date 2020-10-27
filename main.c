@@ -38,15 +38,15 @@ printf("Não há veículo para a busca");
 
 int main(void) {
 int i = 0;
-int c;
+char c;
 
 printf("========================================================\n");
 printf("Insira a opção desejada:");
-scanf("%d", &c);
+c = getchar();
 
 switch (c){
 
-case "1" :
+case "l" :
     printf("E segunda-feira.");
     break;
 
